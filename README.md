@@ -1,5 +1,6 @@
 # CodeAdvent-christmas-puzzles
-CodeAdvent.com christmas puzzle solutions
+christmas puzzle solutions
+http://adventofcode.com/
 
 HAPPY CHRISTMAS :D
 HAPPY CODING :D
