@@ -12,77 +12,80 @@ fs.readFile("./test.txt",function(err,data){
 	visited.push(current);
 	for(var i=0;i<data.length;i++){
 		if(data[i]==="^"){
+			var flag=false;
 			for(var j=0;j<visited.length;j++){
-				var flag=false;
 				if(current[0]==visited[j][0] && current[1]+1==visited[j][1]){
 					flag=true;
+					break;
 					//console.log(flag);
-					console.log(current);
+					//console.log(current);
 				}
 			}
 			if(!flag){
 				visitedHouses++;
-				visited.push([current[0],current[1]++]);
+				visited.push([current[0],current[1]+1]);
 			}
-			current[1]++;
+			current=[current[0],current[1]+1];
 			// console.log(current);
 			// console.log(visitedHouses);
 			// console.log(visited);
-			console.log(current);
+			//console.log(current);
 		}
 		if(data[i]==="v"){
 			for(var j=0;j<visited.length;j++){
 				var flag=false;
 				if(current[0]==visited[j][0] && current[1]-1==visited[j][1]){
 					flag=true;
+					break;
 				}
 			}
 			if(!flag){
 				visitedHouses++;
-				visited.push([current[0],current[1]--]);
+				visited.push([current[0],current[1]-1]);
 			}
-			current[1]--;
-			console.log(current);
+			current=[current[0],current[1]-1];
+			//console.log(current);
 			/*console.log(visitedHouses);
 			console.log(visited);
 			console.log(current);*/
 		}
 		if(data[i]===">"){
+			var flag=false;
 			for(var j=0;j<visited.length;j++){
-				var flag=false;
 				if(current[0]+1==visited[j][0] && current[1]==visited[j][1]){
 					flag=true;
 					break;
-					console.log(flag);
-					console.log(current);
+					//console.log(flag);
+					//console.log(current);
 				}
 			}
 			if(!flag){
 				visitedHouses++;
 				//console.log(visitedHouses);
-				console.log(current);
-				visited.push([current[0]++,current[1]]);
+				//console.log(current);
+				visited.push([current[0]+1,current[1]]);
 			}
-			current[0]++;
-			console.log(current);
+			current=[current[0]+1,current[1]];
+			//console.log(current);
 			// console.log(visitedHouses);
-			console.log(visited);
+			//console.log(visited);
 		}
 		if(data[i]==="<"){
+			var flag=false;
 			for(var j=0;j<visited.length;j++){
-				var flag=false;
 				if(current[0]-1==visited[j][0] && current[1]==visited[j][1]){
 					flag=true;
+					break;
 				}
 			}
 			if(!flag){
 				visitedHouses++;
-				visited.push([current[0]--,current[1]]);
+				visited.push([current[0]-1,current[1]]);
 			}
-			current[0]--;
-			console.log(current);
+			current=[current[0]-1,current[1]];
+			//console.log(current);
 			// console.log(visitedHouses);
-			console.log(visited);
+			//console.log(visited);
 		}
 		//console.log(visitedHouses);
 		// console.log(visited);
