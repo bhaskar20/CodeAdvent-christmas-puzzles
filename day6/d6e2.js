@@ -29,36 +29,31 @@ fs.readFile("./input.txt",function(err,data){
 			case "turn on":
 				for(var p=parseInt(start[0]);p<=parseInt(end[0]);p++){
 					for(var q=parseInt(start[1]);q<=parseInt(end[1]);q++){
-						grid[p][q]=1;
+						grid[p][q]++;
 					}
 				}
 				break;
 			case "turn off":
 				for(var p=parseInt(start[0]);p<=parseInt(end[0]);p++){
 					for(var q=parseInt(start[1]);q<=parseInt(end[1]);q++){
-						grid[p][q]=0;
+						if(grid[p][q]>0){
+							grid[p][q]--;
+						}
 					}
 				}
 				break;
 			case "toggle":
 				for(var p=parseInt(start[0]);p<=parseInt(end[0]);p++){
 					for(var q=parseInt(start[1]);q<=parseInt(end[1]);q++){
-						if(grid[p][q]==1){
-							grid[p][q]=0;
-						}
-						else{
-							grid[p][q]=1;
-						}
+						grid[p][q]=grid[p][q]+2;
 					}
 				}
 				break;
 		}
-	}
+	};
 	for(var i=0;i<1000;i++){
 		for(var j=0;j<1000;j++){
-			if(grid[i][j]==1){
-				result++;
-			}
+			result+=grid[i][j];
 		}
 	};
 console.log(result);
